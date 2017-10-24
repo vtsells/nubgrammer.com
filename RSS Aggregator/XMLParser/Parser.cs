@@ -15,6 +15,10 @@ namespace XMLParser
         private XDocument doc;
         public Parser(string RSSFeedURL)
         {
+            /*************
+             * Remember to talk about this next time:
+             * ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11;
+             *************/
             this.doc = XDocument.Load(RSSFeedURL);
             this.RSSChannel = this.CreateChannel();
             this.Items = this.CreateItems();

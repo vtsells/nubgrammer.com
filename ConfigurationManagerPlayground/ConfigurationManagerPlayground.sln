@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.15
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigurationManagerPlayground", "ConfigurationManagerPlayground\ConfigurationManagerPlayground.csproj", "{A54DE238-BF45-46A3-803E-4A17511C254B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigurationManager.Test", "ConfigurationManager.Test\ConfigurationManager.Test.csproj", "{22EA701A-C085-483F-A40B-74ECEC3B539B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A54DE238-BF45-46A3-803E-4A17511C254B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A54DE238-BF45-46A3-803E-4A17511C254B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A54DE238-BF45-46A3-803E-4A17511C254B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A54DE238-BF45-46A3-803E-4A17511C254B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22EA701A-C085-483F-A40B-74ECEC3B539B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22EA701A-C085-483F-A40B-74ECEC3B539B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22EA701A-C085-483F-A40B-74ECEC3B539B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22EA701A-C085-483F-A40B-74ECEC3B539B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

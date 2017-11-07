@@ -165,6 +165,7 @@
             this.btn_add_feed.TabIndex = 6;
             this.btn_add_feed.Text = "Add New Feed";
             this.btn_add_feed.UseSelectable = true;
+            this.btn_add_feed.Click += new System.EventHandler(this.btn_add_feed_Click);
             // 
             // btn_delete_selected_feed
             // 
@@ -176,6 +177,7 @@
             this.btn_delete_selected_feed.TabIndex = 13;
             this.btn_delete_selected_feed.Text = "Delete Selected Feed";
             this.btn_delete_selected_feed.UseSelectable = true;
+            this.btn_delete_selected_feed.Click += new System.EventHandler(this.btn_delete_selected_feed_Click);
             // 
             // btn_edit_selected_feed
             // 
@@ -187,6 +189,7 @@
             this.btn_edit_selected_feed.TabIndex = 12;
             this.btn_edit_selected_feed.Text = "Edit Selected Feed";
             this.btn_edit_selected_feed.UseSelectable = true;
+            this.btn_edit_selected_feed.Click += new System.EventHandler(this.btn_edit_selected_feed_Click);
             // 
             // tb_selected_feed_url
             // 
@@ -278,11 +281,15 @@
             // 
             this.ltb_feeds.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.ltb_feeds.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ltb_feeds.FormattingEnabled = true;
+            this.ltb_feeds.ItemHeight = 25;
             this.ltb_feeds.Location = new System.Drawing.Point(3, 134);
             this.ltb_feeds.Name = "ltb_feeds";
-            this.ltb_feeds.Size = new System.Drawing.Size(689, 251);
+            this.ltb_feeds.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.ltb_feeds.Size = new System.Drawing.Size(689, 229);
             this.ltb_feeds.TabIndex = 7;
+            this.ltb_feeds.SelectedIndexChanged += new System.EventHandler(this.ltb_feeds_SelectedIndexChanged);
             // 
             // tb_feed_url
             // 

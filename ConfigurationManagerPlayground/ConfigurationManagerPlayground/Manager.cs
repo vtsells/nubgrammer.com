@@ -53,9 +53,16 @@ namespace ConfigurationManagerPlayground
             }
             else if (oldItem.Key != newItem.Key)
             {
-                Remove(oldItem.Key);
-                Add(newItem);
-
+                /********************   Small Bug   ********************
+                 * Removing the item before we check to make sure it is
+                 * unique in the add function can result in a situation
+                 * in which the old item gets removed while the new item
+                 * never gets added
+                 *******************************************************/
+                /*Remove(oldItem.Key);  //original
+                Add(newItem);*/
+                Add(newItem); //Fix
+                Remove(oldItem.Key); //Fix
             }
             else
             {

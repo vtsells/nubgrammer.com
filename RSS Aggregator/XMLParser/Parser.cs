@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
@@ -15,6 +16,7 @@ namespace XMLParser
         private XDocument doc;
         public Parser(string RSSFeedURL)
         {
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11;
             this.doc = XDocument.Load(RSSFeedURL);
             this.RSSChannel = this.CreateChannel();
             this.Items = this.CreateItems();

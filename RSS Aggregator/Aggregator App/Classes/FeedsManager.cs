@@ -9,11 +9,12 @@ namespace Aggregator_App.Classes
 {
     class FeedsManager
     {
-        public List<Feed> Feeds { get; set; }
+        //Unnecessary
+        //public List<Feed> Feeds { get; set; }
         public Feed SelectedFeed { get; set; }
         public FeedsManager()
         {
-            Feeds = GetFeedsFromConfig();
+            //Feeds = GetFeedsFromConfig();
         }
         public void AddFeedToConfig(Feed feed)
         {

@@ -34,7 +34,6 @@
             this.lb_last_updated_at = new MetroFramework.Controls.MetroLabel();
             this.btn_update_news = new MetroFramework.Controls.MetroButton();
             this.wb_display = new System.Windows.Forms.WebBrowser();
-            this.pn_tiles = new MetroFramework.Controls.MetroPanel();
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
             this.btn_add_feed = new MetroFramework.Controls.MetroButton();
             this.btn_delete_selected_feed = new MetroFramework.Controls.MetroButton();
@@ -48,6 +47,7 @@
             this.lb_feed_url = new MetroFramework.Controls.MetroLabel();
             this.tb_easy_name = new MetroFramework.Controls.MetroTextBox();
             this.lb_easy_name = new MetroFramework.Controls.MetroLabel();
+            this.pn_tiles = new MetroFramework.Controls.MetroPanel();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             this.metroTabPage2.SuspendLayout();
@@ -60,17 +60,17 @@
             this.metroTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroTabControl1.Location = new System.Drawing.Point(20, 60);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 1;
+            this.metroTabControl1.SelectedIndex = 0;
             this.metroTabControl1.Size = new System.Drawing.Size(704, 590);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.UseSelectable = true;
             // 
             // metroTabPage1
             // 
+            this.metroTabPage1.Controls.Add(this.pn_tiles);
             this.metroTabPage1.Controls.Add(this.lb_last_updated_at);
             this.metroTabPage1.Controls.Add(this.btn_update_news);
             this.metroTabPage1.Controls.Add(this.wb_display);
-            this.metroTabPage1.Controls.Add(this.pn_tiles);
             this.metroTabPage1.HorizontalScrollbarBarColor = true;
             this.metroTabPage1.HorizontalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.HorizontalScrollbarSize = 10;
@@ -102,6 +102,7 @@
             this.btn_update_news.TabIndex = 4;
             this.btn_update_news.Text = "Update News";
             this.btn_update_news.UseSelectable = true;
+            this.btn_update_news.Click += new System.EventHandler(this.btn_update_news_Click);
             // 
             // wb_display
             // 
@@ -113,21 +114,7 @@
             this.wb_display.Name = "wb_display";
             this.wb_display.Size = new System.Drawing.Size(689, 385);
             this.wb_display.TabIndex = 3;
-            // 
-            // pn_tiles
-            // 
-            this.pn_tiles.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pn_tiles.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pn_tiles.HorizontalScrollbarBarColor = true;
-            this.pn_tiles.HorizontalScrollbarHighlightOnWheel = false;
-            this.pn_tiles.HorizontalScrollbarSize = 10;
-            this.pn_tiles.Location = new System.Drawing.Point(0, 0);
-            this.pn_tiles.Name = "pn_tiles";
-            this.pn_tiles.Size = new System.Drawing.Size(696, 100);
-            this.pn_tiles.TabIndex = 2;
-            this.pn_tiles.VerticalScrollbarBarColor = true;
-            this.pn_tiles.VerticalScrollbarHighlightOnWheel = false;
-            this.pn_tiles.VerticalScrollbarSize = 10;
+            this.wb_display.Navigating += new System.Windows.Forms.WebBrowserNavigatingEventHandler(this.wb_display_Navigating);
             // 
             // metroTabPage2
             // 
@@ -377,6 +364,23 @@
             this.lb_easy_name.TabIndex = 2;
             this.lb_easy_name.Text = "Easy Name:";
             // 
+            // pn_tiles
+            // 
+            this.pn_tiles.AutoScroll = true;
+            this.pn_tiles.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pn_tiles.HorizontalScrollbar = true;
+            this.pn_tiles.HorizontalScrollbarBarColor = true;
+            this.pn_tiles.HorizontalScrollbarHighlightOnWheel = false;
+            this.pn_tiles.HorizontalScrollbarSize = 10;
+            this.pn_tiles.Location = new System.Drawing.Point(0, 0);
+            this.pn_tiles.Name = "pn_tiles";
+            this.pn_tiles.Size = new System.Drawing.Size(696, 100);
+            this.pn_tiles.TabIndex = 6;
+            this.pn_tiles.VerticalScrollbar = true;
+            this.pn_tiles.VerticalScrollbarBarColor = true;
+            this.pn_tiles.VerticalScrollbarHighlightOnWheel = false;
+            this.pn_tiles.VerticalScrollbarSize = 10;
+            // 
             // AggForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -404,7 +408,6 @@
         private MetroFramework.Controls.MetroTabPage metroTabPage2;
         private MetroFramework.Controls.MetroButton btn_update_news;
         private System.Windows.Forms.WebBrowser wb_display;
-        private MetroFramework.Controls.MetroPanel pn_tiles;
         private MetroFramework.Controls.MetroLabel lb_last_updated_at;
         private MetroFramework.Controls.MetroButton btn_add_feed;
         private MetroFramework.Controls.MetroButton btn_delete_selected_feed;
@@ -418,6 +421,7 @@
         private MetroFramework.Controls.MetroLabel lb_feed_url;
         private MetroFramework.Controls.MetroTextBox tb_easy_name;
         private MetroFramework.Controls.MetroLabel lb_easy_name;
+        private MetroFramework.Controls.MetroPanel pn_tiles;
     }
 }
 

@@ -61,8 +61,10 @@
     <Compile Include="AggForm.Designer.cs">
       <DependentUpon>AggForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Classes\DisplayManager.cs" />
     <Compile Include="Classes\Feed.cs" />
     <Compile Include="Classes\FeedsManager.cs" />
+    <Compile Include="Classes\HtmlWriter.cs" />
     <Compile Include="Classes\InvalidFeedException.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -17,6 +17,7 @@ namespace Aggregator_App
     public partial class AggForm : MetroForm
     {
         private FeedsManager feedsManager;
+        private DisplayManager displayManager;
         public AggForm()
         {
             InitializeComponent();
@@ -25,7 +26,9 @@ namespace Aggregator_App
         public void LoadApp()
         {
             feedsManager = new FeedsManager();
-            LoadListBox(ltb_feeds, this.feedsManager.Feeds.ToArray());
+            displayManager = new DisplayManager(feedsManager, wb_display, lb_last_updated_at);
+            displayManager.UpdateTiles(pn_tiles);
+            LoadListBox(ltb_feeds, this.feedsManager.GetFeedsFromConfig().ToArray());
         }
         private void btn_add_feed_Click(object sender, EventArgs e)
         {
@@ -37,6 +40,7 @@ namespace Aggregator_App
                     Feed feed = new Feed(tb_easy_name.Text, tb_feed_url.Text);
                     feedsManager.AddFeedToConfig(feed);
                     AddItemToListBox(ltb_feeds, feed);
+                    displayManager.UpdateTiles(pn_tiles);
                 }
                 catch (ConfigurationErrorsException ex)
                 {
@@ -61,6 +65,7 @@ namespace Aggregator_App
                 {
                     feedsManager.UpdateFeedInConfig(feedsManager.SelectedFeed, new Feed(tb_selected_feed.Text, tb_selected_feed_url.Text));
                     UpdateItemInListBox(ltb_feeds, feedsManager.SelectedFeed, new Feed(tb_selected_feed.Text, tb_selected_feed_url.Text));
+                    displayManager.UpdateTiles(pn_tiles);
                 }
                 catch (ConfigurationErrorsException ex)
                 {
@@ -89,6 +94,7 @@ namespace Aggregator_App
                         continue;
                     }
                 }
+                displayManager.UpdateTiles(pn_tiles);
             }
         }
         private void LoadListBox(ListBox listBox, object[] items)
@@ -127,6 +133,27 @@ namespace Aggregator_App
             {
                 tb_selected_feed.Text = "";
                 tb_selected_feed_url.Text = "";
+            }
+        }
+
+        private void btn_update_news_Click(object sender, EventArgs e)
+        {
+            if (displayManager.SelectedTile != null)
+            {
+                displayManager.SelectedTile.PerformClick();
+            }
+            else
+            {
+                Alert("No feed was selected to update");
+            }
+        }
+
+        private void wb_display_Navigating(object sender, WebBrowserNavigatingEventArgs e)
+        {
+            if (!(e.Url.ToString().Equals("about:blank", StringComparison.InvariantCultureIgnoreCase)))
+            {
+                e.Cancel = true;
+                System.Diagnostics.Process.Start(e.Url.ToString());
             }
         }
     }

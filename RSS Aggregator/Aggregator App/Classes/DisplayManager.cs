@@ -71,7 +71,8 @@ namespace Aggregator_App.Classes
             var feed = (Feed)((MetroTile)sender).Tag;
             try
             {
-                feed.LoadFeed();
+                //feed.LoadFeed() <- this works but it is more correct to use the UpdateFeed() method
+                feed.UpdateFeed();
                 var feedNameTag = html.CreatePairedTag("p", "", feed.Name);
                 html.AddTag(feedNameTag);
 

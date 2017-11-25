@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -50,6 +51,7 @@ namespace Aggregator_App.Classes
             }
             css += "}\n";
             this.css += css;
+
         }
     }
 }

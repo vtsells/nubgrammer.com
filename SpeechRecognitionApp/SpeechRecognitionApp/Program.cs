@@ -47,10 +47,6 @@ namespace SpeechRecognitionApp
         // Handle the SpeechRecognized event.  
         static void recognizer_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
-            var numbers = Regex.Matches("two", @"\w+").Cast<Match>()
-                .Select(m => m.Value.ToLowerInvariant())
-                .Where(v => numberTable.ContainsKey(v))
-                .Select(v => numberTable[v]).FirstOrDefault();
             var text = e.Result.Text;
             //uncomment to give test text instead of voice
             //text="what is 500,000 plus 200,000";
